@@ -1,9 +1,10 @@
-cmake_minimum_required(VERSION 3.0)
-project(Demo)
+cmake_minimum_required(VERSION 4.2)
 
-# Source files
+project(opengl-demo)
+
+# Add source files
 add_executable(
-    Demo
+    opengl-demo
     Camera.cpp Camera.hpp
     City.cpp City.hpp
     Common.hpp
@@ -23,7 +24,7 @@ add_executable(
     Window.cpp Window.hpp
 )
 
-# OpenGL
+# Find OpenGL
 find_package(OpenGL REQUIRED)
 
 if(NOT OPENGL_FOUND)
@@ -33,4 +34,12 @@ endif(NOT OPENGL_FOUND)
 include_directories(${OpenGL_INCLUDE_DIRS})
 link_directories(${OpenGL_LIBRARY_DIRS})
 add_definitions(${OpenGL_DEFINITIONS})
-target_link_libraries(Demo ${OPENGL_LIBRARIES})
+target_link_libraries(opengl-demo ${OPENGL_LIBRARIES})
+
+# Set properties
+set_target_properties(opengl-demo PROPERTIES
+    CXX_EXTENSIONS NO
+    CXX_STANDARD 23
+    CXX_STANDARD_REQUIRED YES
+    VS_DEBUGGER_WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+)
