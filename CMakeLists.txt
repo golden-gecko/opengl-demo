@@ -1,3 +1,5 @@
+cmake_minimum_required(VERSION 3.31.6)
+
 project(opengl-demo)
 
 # Add source files
@@ -41,5 +43,6 @@ set_target_properties(opengl-demo PROPERTIES
     CXX_STANDARD_REQUIRED YES
     VS_DEBUGGER_WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 )
+
 
 
