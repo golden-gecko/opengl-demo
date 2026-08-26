@@ -1,8 +1,7 @@
 cmake_minimum_required(VERSION 4.3.1)
 
+# Project
 project(opengl-demo)
-
-include(FetchContent)
 
 # Sources
 file(GLOB_RECURSE HEADER_FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp)
@@ -16,7 +15,6 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     CXX_EXTENSIONS NO
     CXX_STANDARD 23
     CXX_STANDARD_REQUIRED YES
-    DEBUGGER_WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 # OpenGL
